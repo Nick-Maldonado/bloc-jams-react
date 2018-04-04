@@ -45,16 +45,39 @@ class Album extends Component {
     }
   }
 
+  componentWillMount() {
+    console.log(this.audioElement.src);
+  }
+  
+  componentWillUnmount() {
+    this.audioElement.src = null;
+  }
+
   render() {
+    const {albumCover, artist, title, releaseInfo, songs} = this.state.album;
+    const songRows = (
+      songs.map( (song, index) =>
+        <tr className="song" key={index} onClick={() => this.handleSongClick(song)} >
+          <td className="song-actions">
+            <button>
+              <span className="song-number">{index+1}</span>
+              <span className="ion-play"></span>
+              <span className="ion-pause"></span>
+            </button>
+          </td>
+          <td className="song-title">{song.title}</td>
+          <td className="song-duration">{song.duration}</td>
+        </tr>
+  )
+);
     return (
       <section className="album">
         <section id="album-info">
-          <img id="album-cover-art" src={this.state.album.albumCover} alt=
-          { this.state.album.title }/>
+          <img id="album-cover-art" src={albumCover} alt={ title }/>
           <div className="album-details">
-            <h1 id="album-title">{this.state.album.title}</h1>
-            <h2 className="artist">{this.state.album.artist}</h2>
-            <div id="release-info">{this.state.album.releaseInfo}</div>
+            <h1 id="album-title">{title}</h1>
+            <h2 className="artist">{artist}</h2>
+            <div id="release-info">{releaseInfo}</div>
           </div>
          </section>
          <table id="song-list">
@@ -64,21 +87,7 @@ class Album extends Component {
             <col id="song-duration-column" />
           </colgroup>  
           <tbody>
-            {
-              this.state.album.songs.map( (song, index) =>
-                <tr className="song" key={index} onClick={() => this.handleSongClick(song)} >
-                  <td className="song-actions">
-                    <button>
-                      <span className="song-number">{index+1}</span>
-                      <span className="ion-play"></span>
-                      <span className="ion-pause"></span>
-                    </button>
-                  </td>
-                  <td className="song-title">{song.title}</td>
-                  <td className="song-duration">{song.duration}</td>
-                </tr>
-              )
-            }
+            {songRows}
           </tbody>
         </table>
       </section>
