@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
- 
- class PlayerBar extends Component {
-   render() {
-     return (
+	import React, { Component } from 'react';
+
+	class PlayerBar extends Component {
+		render() {
+			return (
 				<section className="player-bar">
 					<section id="buttons">
 						<button id="previous" onClick={this.props.handlePrevClick}>
@@ -16,7 +16,7 @@ import React, { Component } from 'react';
 						</button>
 					</section>
 					<section id="time-control">                                                                    
-					<div className="current-time">{this.props.currentTime}</div>
+					<div className="current-time">{this.props.displayTime}</div>
 					<input 
 						type="range" 
 						className="seek-bar" 
@@ -26,16 +26,16 @@ import React, { Component } from 'react';
 						step="0.01"
 						onChange={this.props.handleTimeChange} 
 					/>   
-					<div className="total-time">{this.props.duration}</div> 
+					<div className="total-time">{this.props.displayDuration}</div> 
 					</section>
 					<section id="volume-control">
 						<div className="icon ion-volume-low"></div>
 						<input type="range" className="seek-bar" value="80" />
 						<div className="icon ion-volume-high"></div>
 					</section>
-				</section>
-     );
-   }
- }
- 
- export default PlayerBar;
+			</section>
+			);
+		}
+	}
+
+	export default PlayerBar;

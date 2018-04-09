@@ -48,6 +48,15 @@ class Album extends Component {
     }
   }
 
+  formatTime(time) {
+    function pad(n) {
+      return (n < 10) ? ("0" + n) : n;
+    }
+    const seconds = pad(Math.floor(time % 60));
+    const minutes = Math.floor(time / 60);
+    return isNaN(time) ? "-:--" : `${minutes}:${seconds}`;
+  }
+
   handlePrevClick() {
     const currentIndex = this.state.album.songs.findIndex(song => this.state.currentSong === song);
     const newIndex = Math.max(0, currentIndex - 1);
@@ -89,11 +98,7 @@ class Album extends Component {
     this.audioElement.addEventListener('durationchange', this.eventListeners.durationchange);
   }
   
-  formatTime(time) {
-    const seconds = Math.floor(time % 60);
-    const minutes = Math.floor(time / 60);
-    return `${minutes}:${seconds}`
-  }
+
 
   render() {
     const {albumCover, artist, title, releaseInfo, songs} = this.state.album;
@@ -108,7 +113,7 @@ class Album extends Component {
             </button>
           </td>
           <td className="song-title">{song.title}</td>
-          <td className="song-duration">{song.duration}</td>
+          <td className="song-duration">{this.formatTime(song.duration)}</td>
         </tr>
   )
 );
@@ -135,8 +140,10 @@ class Album extends Component {
         <PlayerBar
           isPlaying={this.state.isPlaying}
           currentSong={this.state.currentSong}
-          currentTime={this.formatTime(this.audioElement.currentTime)}
-          duration={this.formatTime(this.audioElement.duration)}
+          currentTime={this.audioElement.currentTime}
+          displayTime={this.formatTime(this.audioElement.currentTime)}
+          duration={this.audioElement.duration}
+          displayDuration={this.formatTime(this.audioElement.duration)}
           handleSongClick={() => this.handleSongClick(this.state.currentSong)}
           handlePrevClick={() => this.handlePrevClick()}
           handleNextClick={() => this.handleNextClick()}
