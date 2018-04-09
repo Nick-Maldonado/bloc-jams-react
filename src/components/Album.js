@@ -89,6 +89,11 @@ class Album extends Component {
     this.audioElement.addEventListener('durationchange', this.eventListeners.durationchange);
   }
   
+  formatTime(time) {
+    const seconds = Math.floor(time % 60);
+    const minutes = Math.floor(time / 60);
+    return `${minutes}:${seconds}`
+  }
 
   render() {
     const {albumCover, artist, title, releaseInfo, songs} = this.state.album;
@@ -130,8 +135,8 @@ class Album extends Component {
         <PlayerBar
           isPlaying={this.state.isPlaying}
           currentSong={this.state.currentSong}
-          currentTime={this.audioElement.currentTime}
-          duration={this.audioElement.duration}
+          currentTime={this.formatTime(this.audioElement.currentTime)}
+          duration={this.formatTime(this.audioElement.duration)}
           handleSongClick={() => this.handleSongClick(this.state.currentSong)}
           handlePrevClick={() => this.handlePrevClick()}
           handleNextClick={() => this.handleNextClick()}

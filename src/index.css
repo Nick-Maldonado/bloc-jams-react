@@ -3,3 +3,15 @@ body {
   padding: 0;
   font-family: sans-serif;
 }
+
+table {
+  margin: auto;
+}
+
+.player-bar {
+  display: inline-block;
+}
+
+.icon {
+  display: inline-block;
+}
