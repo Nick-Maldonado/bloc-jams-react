@@ -7,7 +7,7 @@ body {
 }
 
 header {
-  background-color: #0000007a; 
+  background-color: #010106d6; 
   color: white;
   height: 90px;
   margin-bottom: 10px;
@@ -22,7 +22,7 @@ main {
 }
 
 .player-bar {
-  background-color: #0000007a;
+  background-color: #010106d6;
   color: white;
   position: fixed;
   bottom: 0px;
@@ -40,7 +40,7 @@ button {
 }
 
 button:hover {
-  background-color:#333333;
+  background-color:rgb(7,8,16);
   color: #f15a24;
 }
 
