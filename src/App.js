@@ -4,6 +4,7 @@ import './App.css';
 import Landing from './components/Landing';
 import Library from './components/Library';
 import Album from './components/Album';
+import PlayerBar from './components/PlayerBar';
 
 
 class App extends Component {
@@ -11,12 +12,11 @@ class App extends Component {
     return (
       <div className="App">
         <header>
+          <h1>Bloc Jams</h1>
           <nav>
             <Link to='/'>Landing</Link>
             <Link to='/library'>Library</Link>
-            {/* <Link to='/album'>Album</Link> */}
           </nav>          
-           <h1>Bloc Jams</h1>
         </header>
         <main>
           <Route exact path="/" component={Landing} />

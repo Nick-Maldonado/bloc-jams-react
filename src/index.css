@@ -2,11 +2,41 @@ body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
+  /* background-color: #77b6aa; */
+}
+
+header {
+  background-color: #333333; 
+  color: white;
+  height: 90px;
+  margin-bottom: 10px;
+  position: static;
+}
+
+h1 {
+  margin: 0;
+  font-size: 3em;
+}
+
+nav {
+  padding: 0, 10px;
+}
+
+a {
+  color: #f15a24;
+  font-weight: bold;
+  text-decoration: none;
+  padding: 0, 10px;
 }
 
 table {
   margin: auto;
-  width: 500px;
+  position: center;
+  /* width: 100%; */
+}
+
+td {
+  border:solid;
 }
 
 .current-time {
@@ -19,4 +49,24 @@ table {
 
 .icon {
   display: inline-block;
+}
+
+#time-control {
+  width: 60%;
+  display: inline-block;
+  position: center;
+}
+
+#time-control .seek-bar{
+  width: 75%;
+}
+
+#volume-control {
+  width: 180px;
+  /* display: inline-block; */
+  float: left;
+}
+
+#volume-control .seek-bar{
+  width: 60%;
 }
