@@ -4,7 +4,7 @@ import './App.css';
 import Landing from './components/Landing';
 import Library from './components/Library';
 import Album from './components/Album';
-import PlayerBar from './components/PlayerBar';
+// import PlayerBar from './components/PlayerBar'; later on I want to make the player bar display at the bottom even on the landing and library pages.
 
 
 class App extends Component {
