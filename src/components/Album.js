@@ -105,13 +105,24 @@ class Album extends Component {
     this.audioElement.addEventListener('durationchange', this.eventListeners.durationchange);
   }
   
-
+  setClassName(song) {
+    if (this.state.currentSong === song) {
+      if (this.state.isPlaying) {
+        return "song playing";
+      }
+      else {
+        return "song paused";
+      }
+    } else {
+      return "song";
+    }
+  }
 
   render() {
     const {albumCover, artist, title, releaseInfo, songs} = this.state.album;
     const songRows = (
       songs.map( (song, index) =>
-        <tr className="song" key={index} onClick={() => this.handleSongClick(song)} >
+        <tr className={this.setClassName(song)} key={index} onClick={() => this.handleSongClick(song)} >
           <td className="song-actions">
             <button>
               <span className="song-number">{index+1}</span>

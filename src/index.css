@@ -61,15 +61,15 @@ h1 {
   font-size: 3em;
 }
 
-nav {
-  padding: 0, 10px;
-}
+/* nav {
+  padding: 0 10px;
+} */
 
 a {
   color: #f15a24;
   font-weight: bold;
   text-decoration: none;
-  padding: 0, 10px;
+  padding: 0 10px;
 }
 
 table {
