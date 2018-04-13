@@ -159,6 +159,7 @@ class Album extends Component {
           coverArt={this.state.album.albumCover}
           isPlaying={this.state.isPlaying}
           currentSong={this.state.currentSong}
+          songName={this.state.currentSong.title}
           currentTime={this.audioElement.currentTime}
           displayTime={this.formatTime(this.audioElement.currentTime)}
           duration={this.audioElement.duration}

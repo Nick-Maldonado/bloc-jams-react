@@ -4,7 +4,7 @@
 		render() {
 			return (
 				<section className="player-bar">
-          <div id="currently-playing">Song Name Here</div>
+          <div id="currently-playing">{this.props.songName}</div>
           <section id="volume-control">
 						<div className="icon ion-volume-low"></div>
 						<input 
@@ -29,9 +29,9 @@
 							<span className="ion-skip-forward"></span>
 						</button>
 					</section>
-          {/* <section id="cover-art">
-            <img src={this.props.coverArt}/>
-          </section> */}
+          <section id="cover-art">
+            <img src={this.props.coverArt} alt={this.props.songName}/>
+          </section>
 					<section id="time-control">                                                                    
 						<div className="current-time">{this.props.displayTime}</div>
 						<input 
